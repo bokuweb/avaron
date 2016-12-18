@@ -67,7 +67,7 @@ If you want to pass options to the browser window for the renderer process, you 
 adding the `windowOptions` option to your config. This object will then be passed to the
 [`BrowserWindow` constructor](http://electron.atom.io/docs/api/browser-window/#new-browserwindowoptions).
 
-For example, if you want to have with the title "My fancy tests", you could update your `package.json`
+For example, if you want to have with the title `My fancy tests`, you could update your `package.json`
 to look like this:
 
 ```json
