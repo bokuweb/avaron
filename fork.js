@@ -49,7 +49,7 @@ if (env.NODE_PATH) {
 
 // In case the test file imports a different AVA install,
 // the presence of this variable allows it to require this one instead
-env.AVA_PATH = path.resolve(__dirname, '../node_modules/ava');
+env.AVA_PATH = path.resolve(require.resolve('ava'), '..');
 
 module.exports = (file, opts, execArgv) => {
 	opts = Object.assign({
@@ -61,7 +61,7 @@ module.exports = (file, opts, execArgv) => {
 		} : false
 	}, opts);
 
-	const ps = childProcess.spawn(require('electron'), [require.resolve('./test-starter'), JSON.stringify(opts)], {
+	const ps = childProcess.spawn(require('electron'), [require.resolve('./main-process/test-starter'), JSON.stringify(opts)], {
 		stdio: [null, null, null, 'ipc'],
 		cwd: opts.pkgDir,
 		silent: true,

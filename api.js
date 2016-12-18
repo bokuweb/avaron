@@ -29,7 +29,7 @@ var util = require('util');
 var fs = require('fs');
 var objectAssign = require('object-assign');
 var Api = require('ava/api');
-var fork = require('./lib/fork');
+var fork = require('./fork');
 
 function ElectronApi(options) {
 	Api.call(this, options);
