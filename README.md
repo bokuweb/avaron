@@ -1,4 +1,4 @@
-# electron-ava
+# Electron-AVA
 
 All the simpleness of [AVA](https://ava.li) tests for [Electron](http://electron.atom.io).
 
@@ -66,3 +66,23 @@ Your `package.json` then should look like this:
 If you want to pass options to the browser window for the renderer process, you can do this by
 adding the `windowOptions` option to your config. This object will then be passed to the
 [`BrowserWindow` constructor](http://electron.atom.io/docs/api/browser-window/#new-browserwindowoptions).
+
+For example, if you want to have with the title "My fancy tests", you could update your `package.json`
+to look like this:
+
+```json
+{
+	"scripts": {
+		"test": "electron-ava"
+	},
+	"devDependencies": {
+		"electron-ava": "^0.1.0"
+	},
+	"electron-ava": {
+		"renderer": true,
+		"windowOptions": {
+			"title": "My fancy tests"
+		}
+	}
+}
+```
