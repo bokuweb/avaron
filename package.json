@@ -3,6 +3,7 @@
   "version": "0.1.0",
   "description": "Electron testing in AVA",
   "license": "MIT",
+  "main": "cli.js",
   "cli": "cli.js",
   "author": "Wouter Van den Berg <woutervandberg@gmail.com>",
   "dependencies": {
@@ -60,5 +61,6 @@
     "windowOptions": {
       "title": "Test"
     }
-  }
+  },
+  "repository": "git@github.com:vdbwouter/electron-ava.git"
 }
