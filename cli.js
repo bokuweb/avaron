@@ -1,5 +1,7 @@
 #!/usr/bin/env node
 /*
+Based on https://github.com/avajs/ava/blob/033d4dcdcbdadbf665c740ff450c2a775a8373dc/lib/cli.js
+
 The MIT License (MIT)
 
 Copyright (c) Sindre Sorhus <sindresorhus@gmail.com> (sindresorhus.com)
@@ -23,8 +25,6 @@ OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
 THE SOFTWARE.
 */
 
-// After: https://github.com/avajs/ava/blob/033d4dcdcbdadbf665c740ff450c2a775a8373dc/lib/cli.js
-
 'use strict';
 var path = require('path');
 var updateNotifier = require('update-notifier');
@@ -47,7 +47,7 @@ var Api = require('./api');
 // Bluebird specific
 Promise.longStackTraces();
 
-var conf = pkgConf.sync('ava');
+var conf = pkgConf.sync('electron-ava');
 
 var filepath = pkgConf.filepath(conf);
 var pkgDir = filepath === null ? process.cwd() : path.dirname(filepath);
@@ -57,7 +57,6 @@ var cli = meow([
 	'  electron-ava [<file|directory|glob> ...]',
 	'',
 	'Options',
-	'  --init                  Add AVA to your project', // TODO
 	'  --fail-fast             Stop after first test failure',
 	'  --serial, -s            Run tests serially',
 	'  --tap, -t               Generate TAP output',
@@ -77,8 +76,6 @@ var cli = meow([
 	'  electron-ava test.js test2.js',
 	'  electron-ava test-*.js',
 	'  electron-ava test',
-	'  electron-ava --init',
-	'  electron-ava --init foo.js',
 	'',
 	'Default patterns when no arguments:',
 	'test.js test-*.js test/**/*.js **/__tests__/**/*.js **/*.test.js'
@@ -115,11 +112,6 @@ var cli = meow([
 
 updateNotifier({pkg: cli.pkg}).notify();
 
-if (cli.flags.init) {
-	require('ava-init')();
-	process.exit();
-}
-
 if (
 	((hasFlag('--watch') || hasFlag('-w')) && (hasFlag('--tap') || hasFlag('-t'))) ||
 	(conf.watch && conf.tap)
@@ -145,7 +137,8 @@ var api = new Api({
 	timeout: cli.flags.timeout,
 	concurrency: cli.flags.concurrency ? parseInt(cli.flags.concurrency, 10) : 0,
 	updateSnapshots: cli.flags.updateSnapshots,
-	renderer: cli.flags.renderer
+	renderer: cli.flags.renderer,
+	windowOptions: conf.windowOptions
 });
 
 var reporter;

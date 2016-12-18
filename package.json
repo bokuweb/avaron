@@ -1,6 +1,6 @@
 {
   "name": "electron-ava",
-  "version": "1.0.0",
+  "version": "0.1.0",
   "description": "Electron testing in AVA",
   "license": "MIT",
   "cli": "cli.js",
@@ -8,7 +8,6 @@
   "dependencies": {
     "arrify": "^1.0.1",
     "ava": "^0.17.0",
-    "ava-init": "^0.1.6",
     "bluebird": "^3.4.6",
     "currently-unhandled": "^0.4.1",
     "electron": "^1.4.12",
@@ -18,31 +17,48 @@
     "meow": "^3.7.0",
     "object-assign": "^4.1.0",
     "pkg-conf": "^2.0.0",
-    "update-notifier": "^1.0.3",
-    "xo": "^0.17.1"
+    "update-notifier": "^1.0.3"
   },
   "scripts": {
-    "test": "xo && node cli.js test/browser.js && node cli.js --renderer test/renderer.js"
+    "test": "xo && node cli.js && node cli.js --renderer test/renderer.js"
   },
   "devDependencies": {
     "xo": "^0.17.1"
   },
   "xo": {
-    "envs": [ "node" ],
+    "envs": [
+      "node"
+    ],
     "rules": {
       "no-use-extend-native/no-use-extend-native": "off",
       "no-eq-null": "off",
       "eqeqeq": [
         "error",
         "always",
-        { "null": "ignore" }
+        {
+          "null": "ignore"
+        }
       ]
     },
     "overrides": [
       {
-        "files": [ "renderer/*.js", "test/renderer.js" ],
-        "envs": [ "node", "browser" ]
+        "files": [
+          "renderer/*.js",
+          "test/renderer.js"
+        ],
+        "envs": [
+          "node",
+          "browser"
+        ]
       }
     ]
+  },
+  "electron-ava": {
+    "files": [
+      "test/browser.js"
+    ],
+    "windowOptions": {
+      "title": "Test"
+    }
   }
 }

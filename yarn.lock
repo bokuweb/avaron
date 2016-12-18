@@ -153,7 +153,7 @@ ava-files@^0.2.0:
     multimatch "^2.1.0"
     slash "^1.0.0"
 
-ava-init@^0.1.0, ava-init@^0.1.6:
+ava-init@^0.1.0:
   version "0.1.6"
   resolved "https://registry.yarnpkg.com/ava-init/-/ava-init-0.1.6.tgz#ef19ed0b24b6bf359dad6fbadf1a05d836395c91"
   dependencies:

@@ -39,7 +39,7 @@ It should now look a bit like this:
 }
 ```
 
-### Renderer process tests
+## Renderer process tests
 
 If you want to run your tests in the renderer process, you can add the `renderer`
 option to the `electron-ava` section in your `package.json` and give it the value `true`.
@@ -60,3 +60,9 @@ Your `package.json` then should look like this:
 	}
 }
 ```
+
+## Window options
+
+If you want to pass options to the browser window for the renderer process, you can do this by
+adding the `windowOptions` option to your config. This object will then be passed to the
+[`BrowserWindow` constructor](http://electron.atom.io/docs/api/browser-window/#new-browserwindowoptions).

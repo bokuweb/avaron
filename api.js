@@ -1,4 +1,6 @@
 /*
+Based on https://github.com/avajs/ava/blob/033d4dcdcbdadbf665c740ff450c2a775a8373dc/api.js
+
 The MIT License (MIT)
 
 Copyright (c) Sindre Sorhus <sindresorhus@gmail.com> (sindresorhus.com)
@@ -21,8 +23,6 @@ LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
 OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
 THE SOFTWARE.
 */
-
-// Functions after: https://github.com/avajs/ava/blob/033d4dcdcbdadbf665c740ff450c2a775a8373dc/api.js
 
 'use strict';
 var util = require('util');
