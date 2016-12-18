@@ -20,10 +20,14 @@ Or, if you prefer npm:
 npm install electron-ava --save-dev
 ```
 
-Then in your `package.json`, add the following to your test script:
+Then add the following in your `package.json`:
 
-```
-electron-ava
+```json
+{
+	"scripts": {
+		"test": "electron-ava"
+	}
+}
 ```
 
 It should now look a bit like this:
