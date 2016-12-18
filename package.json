@@ -4,7 +4,7 @@
   "description": "Electron testing in AVA",
   "license": "MIT",
   "main": "cli.js",
-  "cli": "cli.js",
+  "bin": "cli.js",
   "author": "Wouter Van den Berg <woutervandberg@gmail.com>",
   "dependencies": {
     "arrify": "^1.0.1",
