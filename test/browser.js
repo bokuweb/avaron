@@ -1,7 +1,10 @@
-import {ipcMain} from 'electron';
+import {ipcMain, ipcRenderer} from 'electron';
 import test from 'ava';
 
-test('it works', t => {
-	t.not(ipcMain, undefined);
-	t.not(ipcMain, null);
+test('ipcMain is defined', t => {
+	t.false(ipcMain == null);
+});
+
+test('ipcRenderer is not defined', t => {
+	t.true(ipcRenderer == null);
 });
