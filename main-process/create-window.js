@@ -3,18 +3,10 @@ const url = require('url');
 const path = require('path');
 
 module.exports = function (options) {
-	const windowOptions = Object.assign({
-		show: false
-	}, options);
-
-	const window = new BrowserWindow(windowOptions);
+	const window = new BrowserWindow(options);
 	const windowURL = getURL();
 
 	window.loadURL(windowURL);
-
-	window.once('ready-to-show', () => {
-		window.show();
-	});
 
 	return window;
 };

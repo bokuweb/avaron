@@ -1,10 +1,9 @@
 'use strict';
 const {ipcRenderer} = require('electron');
-require('./globals'); // eslint-disable-line import/no-unassigned-import
+const setupTestEnvironment = require('./setup-test-environment');
 
 ipcRenderer.on('test-start', (event, argv) => {
-	process.argv = argv;
-	require('./process-adapter'); // eslint-disable-line import/no-unassigned-import
+	setupTestEnvironment(argv);
 
 	require('ava/lib/test-worker'); // eslint-disable-line import/no-unassigned-import
 });
