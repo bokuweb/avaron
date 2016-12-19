@@ -12,22 +12,20 @@ not, see [renderer tests](#renderer-process-tests)).
 Otherwise, you can install `electron-ava` with the following command:
 
 ```sh
-yarn add electron-ava -D
+$ npm install electron-ava --save-dev
 ```
 
-Or, if you prefer npm:
+Or, if you prefer yarn:
 
 ```sh
-npm install electron-ava --save-dev
+$ yarn add electron-ava -D
 ```
 
 Then add the following in your `package.json`:
 
 ```json
-{
-	"scripts": {
-		"test": "electron-ava"
-	}
+"scripts": {
+	"test": "electron-ava"
 }
 ```
 
@@ -43,6 +41,46 @@ It should now look a bit like this:
 	}
 }
 ```
+
+That's all! You can now run your Electron tests in AVA using `yarn test` or `npm test`.
+
+## Command line interface
+
+```sh
+  Usage
+    electron-ava [<file|directory|glob> ...]
+
+  Options
+    --fail-fast             Stop after first test failure
+    --serial, -s            Run tests serially
+    --tap, -t               Generate TAP output
+    --verbose, -v           Enable verbose output
+    --no-cache              Disable the transpiler cache
+    --no-power-assert       Disable Power Assert
+    --match, -m             Only run tests with matching title (Can be repeated)
+    --watch, -w             Re-run tests when tests and source files change
+    --source, -S            Pattern to match source files so tests can be re-run (Can be repeated)
+    --timeout, -T           Set global timeout
+    --concurrency, -c       Maximum number of test files running at the same time (EXPERIMENTAL)
+    --update-snapshots, -u  Update snapshots
+    --renderer              Run the tests in the renderer process
+
+  Examples
+    electron-ava
+    electron-ava test.js test2.js
+    electron-ava test-*.js
+    electron-ava test
+
+  Default patterns when no arguments:
+  test.js test-*.js test/**/*.js **/__tests__/**/*.js **/*.test.js
+```
+
+The CLI has the same options as the
+[AVA CLI](https://github.com/avajs/ava/tree/033d4dcdcbdadbf665c740ff450c2a775a8373dc#cli),
+except for the options `--init` and `--renderer`. `--init` has not yet been added and
+`--renderer` has been added.
+
+`--renderer` allows you to run the tests in the renderer process instead of the main process.
 
 ## Renderer process tests
 
