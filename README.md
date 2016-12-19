@@ -1,4 +1,5 @@
 # Electron-AVA
+[![CircleCI](https://circleci.com/gh/vdbwouter/electron-ava/tree/master.svg?style=svg)](https://circleci.com/gh/vdbwouter/electron-ava/tree/master)
 
 All the simpleness of [AVA](https://ava.li) tests for [Electron](http://electron.atom.io).
 
