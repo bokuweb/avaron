@@ -3,13 +3,17 @@ const {app, ipcMain} = require('electron');
 const createWindow = require('./create-window');
 
 function initializeRenderer(opts) {
-	const window = createWindow(opts.windowOptions);
+	const window = createWindow(opts.windowOptions, process.argv);
 
 	ipcMain.on('ava-message', (event, name, data) => {
 		sendAvaMessage(name, data);
 	});
 
 	process.on('message', message => {
+		if (!message.ava) {
+			return;
+		}
+
 		resendAvaMessageTo(window, message);
 	});
 
@@ -27,15 +31,11 @@ function sendAvaMessage(name, data) {
 }
 
 function resendAvaMessageTo(window, message) {
-	if (!message.ava) {
-		return;
-	}
-
 	window.webContents.send('ava-message', message.name, message.data);
 }
 
 function startRendererTests(window) {
-	window.webContents.send('test-start', process.argv);
+	window.webContents.send('test-start');
 }
 
 function startMainTests() {

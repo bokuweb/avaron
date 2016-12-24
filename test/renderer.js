@@ -8,3 +8,5 @@ test('ipcRenderer is defined', t => {
 test('ipcMain is not defined', t => {
 	t.true(ipcMain == null);
 });
+
+throw new Error('hi');
