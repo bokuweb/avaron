@@ -1,6 +1,6 @@
 {
   "name": "electron-ava",
-  "version": "0.2.0",
+  "version": "0.3.0",
   "description": "Electron testing in AVA",
   "license": "MIT",
   "main": "cli.js",
