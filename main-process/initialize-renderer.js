@@ -25,6 +25,8 @@ function addRendererEventHandlers(window) {
 	window.webContents.once('did-finish-load', () => {
 		startRendererTests(window);
 	});
+
+	require('./renderer-console'); // eslint-disable-line import/no-unassigned-import
 }
 
 function startRendererTests(window) {

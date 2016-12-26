@@ -22,8 +22,10 @@ process.argv = parseArgv();
 
 require('./process-adapter'); // eslint-disable-line import/no-unassigned-import
 require('./globals'); // eslint-disable-line import/no-unassigned-import
+require('./console'); // eslint-disable-line import/no-unassigned-import
 
-ipcRenderer.on('test-start', () => {
+// Ensure the tests only run once
+ipcRenderer.once('test-start', () => {
 	require('ava/lib/test-worker'); // eslint-disable-line import/no-unassigned-import
 
 	// Disable duplicate reporting
