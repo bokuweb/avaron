@@ -1,42 +1,17 @@
 'use strict';
-const {app, ipcMain} = require('electron');
-const createWindow = require('./create-window');
+const {app} = require('electron');
+const serializeError = require('ava/lib/serialize-error');
+const avaMessages = require('./ava-messages');
+const initializeRenderer = require('./initialize-renderer');
 
-function initializeRenderer(opts) {
-	const window = createWindow(opts.windowOptions, process.argv);
-
-	ipcMain.on('ava-message', (event, name, data) => {
-		sendAvaMessage(name, data);
-	});
-
-	process.on('message', message => {
-		if (!message.ava) {
-			return;
-		}
-
-		resendAvaMessageTo(window, message);
-	});
-
-	window.webContents.once('did-finish-load', () => {
-		startRendererTests(window);
+// Setup as soon as possible
+function onUncaughtException(err) {
+	avaMessages.sendToProcess('uncaughtException', {
+		exception: serializeError(err)
 	});
 }
 
-function sendAvaMessage(name, data) {
-	process.send({
-		name: `ava-${name}`,
-		data,
-		ava: true
-	});
-}
-
-function resendAvaMessageTo(window, message) {
-	window.webContents.send('ava-message', message.name, message.data);
-}
-
-function startRendererTests(window) {
-	window.webContents.send('test-start');
-}
+process.on('uncaughtException', onUncaughtException);
 
 function startMainTests() {
 	require('ava/lib/test-worker'); // eslint-disable-line import/no-unassigned-import
@@ -48,5 +23,8 @@ app.on('ready', () => {
 		initializeRenderer(opts);
 	} else {
 		startMainTests();
+
+		// Disable duplicate reporting
+		process.removeListener('uncaughtException', onUncaughtException);
 	}
 });

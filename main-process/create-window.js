@@ -4,7 +4,9 @@ const url = require('url');
 const path = require('path');
 
 module.exports = function (options, argv) {
-	const window = new BrowserWindow(options);
+	const actualOptions = Object.assign({show: false}, options);
+
+	const window = new BrowserWindow(actualOptions);
 	const windowURL = getURL(argv);
 
 	window.loadURL(windowURL);
