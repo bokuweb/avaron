@@ -1,44 +1,26 @@
-# Electron-AVA
-[![CircleCI](https://circleci.com/gh/vdbwouter/electron-ava/tree/master.svg?style=svg)](https://circleci.com/gh/vdbwouter/electron-ava/tree/master)
+# AVARON
 
-All the simpleness of [AVA](https://ava.li) tests for [Electron](http://electron.atom.io).
+WIP
 
 ## Usage
 
-If you are already using `ava`, you can just replace `ava` with `electron-ava`
-in your `package.json` (assuming all your tests run in the main process. If
-not, see [renderer tests](#renderer-process-tests)).
-
-Otherwise, you can install `electron-ava` with the following command:
+You can install `avaron` with the following command:
 
 ```sh
-$ npm install electron-ava --save-dev
+$ npm install avaron --save-dev
 ```
 
 Or, if you prefer yarn:
 
 ```sh
-$ yarn add electron-ava -D
+$ yarn add avaron -D
 ```
 
 Then add the following in your `package.json`:
 
 ```json
 "scripts": {
-	"test": "electron-ava"
-}
-```
-
-It should now look a bit like this:
-
-```json
-{
-	"scripts": {
-		"test": "electron-ava"
-	},
-	"devDependencies": {
-		"electron-ava": "^0.1.0"
-	}
+	"test": "avaron"
 }
 ```
 
@@ -48,7 +30,7 @@ That's all! You can now run your Electron tests in AVA using `yarn test` or `npm
 
 ```sh
   Usage
-    electron-ava [<file|directory|glob> ...]
+    avaron [<file|directory|glob> ...]
 
   Options
     --fail-fast             Stop after first test failure
@@ -63,13 +45,13 @@ That's all! You can now run your Electron tests in AVA using `yarn test` or `npm
     --timeout, -T           Set global timeout
     --concurrency, -c       Maximum number of test files running at the same time (EXPERIMENTAL)
     --update-snapshots, -u  Update snapshots
-    --renderer              Run the tests in the renderer process
+    --renderer              Run the on the renderer process
 
   Examples
-    electron-ava
-    electron-ava test.js test2.js
-    electron-ava test-*.js
-    electron-ava test
+    avaron
+    avaron test.js test2.js
+    avaron test-*.js
+    avaron test
 
   Default patterns when no arguments:
   test.js test-*.js test/**/*.js **/__tests__/**/*.js **/*.test.js
@@ -85,7 +67,7 @@ except for the options `--init` and `--renderer`. `--init` has not yet been adde
 ## Renderer process tests
 
 If you want to run your tests in the renderer process, you can add the `renderer`
-option to the `electron-ava` section in your `package.json` and give it the value `true`.
+option to the `avaron` section in your `package.json` and give it the value `true`.
 This config works the same as the [`ava` config](https://github.com/avajs/ava#configuration).
 
 Your `package.json` then should look like this:
@@ -93,21 +75,21 @@ Your `package.json` then should look like this:
 ```json
 {
 	"scripts": {
-		"test": "electron-ava"
+		"test": "avaron"
 	},
 	"devDependencies": {
-		"electron-ava": "^0.1.0"
+		"avaron": "^0.1.0"
 	},
-	"electron-ava": {
+	"avaron": {
 		"renderer": true
 	}
 }
 ```
 
-## Window options
+## BrowserWindow options
 
 If you want to pass options to the browser window for the renderer process, you can do this by
-adding the `windowOptions` option to your config. This object will then be passed to the
+adding the `browserWindowOptions` option to your config. This object will then be passed to the
 [`BrowserWindow` constructor](http://electron.atom.io/docs/api/browser-window/#new-browserwindowoptions).
 
 For example, if you want to have with the title `My fancy tests`, you could update your `package.json`
@@ -116,12 +98,12 @@ to look like this:
 ```json
 {
 	"scripts": {
-		"test": "electron-ava"
+		"test": "avaron"
 	},
 	"devDependencies": {
-		"electron-ava": "^0.1.0"
+		"avaron": "^0.1.0"
 	},
-	"electron-ava": {
+	"avaron": {
 		"renderer": true,
 		"windowOptions": {
 			"title": "My fancy tests"

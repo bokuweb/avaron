@@ -1,11 +1,11 @@
 'use strict';
+
 const util = require('util');
-const {ipcRenderer} = require('electron');
+const { ipcRenderer } = require('electron');
 
 const createOutput = channel => (format, ...args) => {
-	const output = util.format(format, ...args);
-
-	ipcRenderer.send(channel, output);
+        const output = util.format(format, ...args);
+        ipcRenderer.send(channel, output);
 };
 
 console.log = createOutput('console-log');

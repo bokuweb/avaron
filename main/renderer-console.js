@@ -1,10 +1,9 @@
 'use strict';
-const {ipcMain} = require('electron');
+
+const { ipcMain } = require('electron');
 
 const listenToOutput = (channel, outputMethod) => {
-	ipcMain.on(channel, (event, output) => {
-		outputMethod(output);
-	});
+        ipcMain.on(channel, (event, output) => outputMethod(output));
 };
 
 listenToOutput('console-log', console.log);
