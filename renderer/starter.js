@@ -10,21 +10,21 @@ process.send = (name, data) => { };
 
 // Below code is stub for Node.js process.channel or process._channel.
 process.channel = {
-        unref() { },
-        ref() { },
+	unref() { },
+	ref() { },
 };
 
 function onUncaughtException(err) {
-        ipcRenderer.send('ava-message', 'uncaughtException', {
-                exception: serializeError(err)
-        });
+	ipcRenderer.send('ava-message', 'uncaughtException', {
+		exception: serializeError(err)
+	});
 }
 
 process.on('uncaughtException', onUncaughtException);
 
 function parseArgv() {
-        const unencodedHash = decodeURIComponent(window.location.hash.substr(1));
-        return JSON.parse(unencodedHash);
+	const unencodedHash = decodeURIComponent(window.location.hash.substr(1));
+	return JSON.parse(unencodedHash);
 }
 
 process.argv = parseArgv();
@@ -34,7 +34,7 @@ require('./process-adapter');
 
 // Ensure the tests only run once
 ipcRenderer.once('test-start', () => {
-        require('ava/lib/test-worker');
-        // Disable duplicate reporting
-        process.removeListener('uncaughtException', onUncaughtException);
+	require('ava/lib/test-worker');
+	// Disable duplicate reporting
+	process.removeListener('uncaughtException', onUncaughtException);
 });

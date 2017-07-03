@@ -22,16 +22,16 @@ const importLocal = require('import-local');
 
 // Prefer the local installation of AVA
 if (importLocal(__filename)) {
-        debug('Using local install of AVA');
+	debug('Using local install of AVA');
 } else {
-        if (debug.enabled) {
-                require('time-require'); // eslint-disable-line import/no-unassigned-import
-        }
+	if (debug.enabled) {
+		require('time-require'); // eslint-disable-line import/no-unassigned-import
+	}
 
-        try {
-                require('./lib/cli').run();
-        } catch (err) {
-                console.error(err)
-                process.exit(1);
-        }
+	try {
+		require('./lib/cli').run();
+	} catch (err) {
+		console.error(err)
+		process.exit(1);
+	}
 }
