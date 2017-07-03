@@ -2,6 +2,8 @@
 
 WIP
 
+[![Build Status](https://travis-ci.org/bokuweb/avaron.svg?branch=master)](https://travis-ci.org/bokuweb/avaron)
+
 AVARON forked from electron-ava.
 
 ## Usage
