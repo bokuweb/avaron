@@ -1,6 +1,6 @@
 {
   "name": "avaron",
-  "version": "0.1.0",
+  "version": "0.0.1",
   "description": "",
   "main": "main.js",
   "scripts": {
@@ -42,5 +42,8 @@
     "ava": "^0.20.0",
     "electron": "~1.6.2",
     "make-dir": "^1.0.0"
+  },
+  "bin": {
+    "avaron": "./cli.js"
   }
 }
