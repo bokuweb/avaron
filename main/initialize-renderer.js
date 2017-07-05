@@ -10,7 +10,7 @@ require('./renderer-console');
 module.exports = opts => {
 	const window = createWindow(opts.windowOptions, process.argv);
 	window.webContents.on('dom-ready', (e) => {
-		// window.webContents.executeJavaScript('require("./starter.js");');
+		window.webContents.executeJavaScript('require("./starter.js");');
 	});
 	addRendererEventHandlers(window);
 };

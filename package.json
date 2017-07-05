@@ -8,7 +8,7 @@
     "lint": "xo",
     "test:renderer": "node cli.js test/renderer/*.test.js --renderer",
     "test:main": "node cli.js test/common/*.test.js",
-    "test": "run-p test:*"
+    "test": "run-s test:*"
   },
   "repository": "",
   "keywords": [],
