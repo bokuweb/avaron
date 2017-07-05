@@ -1,7 +1,7 @@
 /* eslint-disable import/no-unassigned-import */
 
 'use strict';
-const {ipcMain} = require('electron');
+const { ipcMain } = require('electron');
 const createWindow = require('./create-window');
 const messages = require('./messages');
 
@@ -9,6 +9,9 @@ require('./renderer-console');
 
 module.exports = opts => {
 	const window = createWindow(opts.windowOptions, process.argv);
+	window.webContents.on('dom-ready', (e) => {
+		// window.webContents.executeJavaScript('require("./starter.js");');
+	});
 	addRendererEventHandlers(window);
 };
 

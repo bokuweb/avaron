@@ -5,6 +5,8 @@
 const {ipcRenderer} = require('electron');
 const serializeError = require('ava/lib/serialize-error');
 
+window.__avaron__ = true;
+
 // Below code is stub for ava process.send.
 process.send = () => { };
 

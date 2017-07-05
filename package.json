@@ -6,9 +6,9 @@
   "scripts": {
     "start": "",
     "lint": "xo",
-    "test:renderer": "node cli.js test/renderer/*.test.js test/common/*.test.js --renderer",
+    "test:renderer": "node cli.js test/renderer/*.test.js --renderer",
     "test:main": "node cli.js test/common/*.test.js",
-    "test": "npm run lint && run-p test:*"
+    "test": "run-p test:*"
   },
   "repository": "",
   "keywords": [],
@@ -23,7 +23,6 @@
     "react": "^15.6.1",
     "react-dom": "^15.6.1",
     "react-test-renderer": "^15.6.1",
-    "reg-suit": "0.0.12",
     "xo": "^0.18.2"
   },
   "xo": {
@@ -32,8 +31,7 @@
     ],
     "envs": [
       "node",
-      "browser",
-      "react"
+      "browser"
     ],
     "rules": {
       "no-use-extend-native/no-use-extend-native": "off"
