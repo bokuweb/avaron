@@ -8,5 +8,5 @@ test('react', async t => {
 	render(<div>Hello, world</div>, document.body)
 	document.body.style.backgroundColor = "#ccc";
 	t.is(1, 1);
-	await screenshot('hello_react.png');
+	await screenshot('screenshots/hello_react.png');
 });
