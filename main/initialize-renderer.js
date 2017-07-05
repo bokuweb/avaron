@@ -8,7 +8,7 @@ const messages = require('./messages');
 require('./renderer-console');
 
 module.exports = opts => {
-	const window = createWindow(opts.windowOptions, process.argv);
+	const window = createWindow(opts, process.argv);
 	addRendererEventHandlers(window);
 };
 

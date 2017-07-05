@@ -52,7 +52,8 @@
     ],
     "windowOptions": {
       "title": "My fancy tests"
-    }
+    },
+    "fixture": "./fixture.html"
   },
   "dependencies": {
     "ava": "^0.20.0",
