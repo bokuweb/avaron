@@ -1,13 +1,17 @@
 'use strict';
 
-const {BrowserWindow} = require('electron');
+const { BrowserWindow } = require('electron');
 const url = require('url');
 const path = require('path');
 
-module.exports = function (options, argv) {
-	const actualOptions = Object.assign({show: true, width: 800, height: 600, webPreferences: {devTools: true}}, options);
+module.exports = (options, argv) => {
+	console.log(options)
+	const actualOptions = Object.assign({ show: true, width: 800, height: 600, webPreferences: { devTools: true } }, options);
 	const window = new BrowserWindow(actualOptions);
 	const windowURL = getURL(argv);
+	window.webContents.on('dom-ready', (e) => {
+		window.webContents.executeJavaScript('require("./starter.js");');
+	});
 	window.webContents.openDevTools();
 	window.loadURL(windowURL);
 	return window;

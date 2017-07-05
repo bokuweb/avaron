@@ -44,12 +44,15 @@
       "react"
     ]
   },
-  "ava": {
+  "avaron": {
     "babel": "inherit",
     "require": [
       "babel-register",
       "babel-polyfill"
-    ]
+    ],
+    "windowOptions": {
+      "title": "My fancy tests"
+    }
   },
   "dependencies": {
     "ava": "^0.20.0",
