@@ -1,9 +1,11 @@
+/* eslint-disable import/no-extraneous-dependencies */
+
 'use strict';
-const { ipcRenderer } = require('electron');
+const {ipcRenderer} = require('electron');
 const serializeError = require('ava/lib/serialize-error');
 const currentlyUnhandled = require('currently-unhandled')();
 const processAdapter = require('ava/lib/process-adapter');
-const { setRunner } = require('ava/lib/test-worker');
+// Const { setRunner } = require('ava/lib/test-worker');
 
 let tearingDown = false;
 
@@ -28,7 +30,7 @@ const exit = () => {
 	processAdapter.send('teardown',
 		{
 			dependencies: Array.from(dependencies),
-			touchedFiles: Array.from(touchedFiles),
+			touchedFiles: Array.from(touchedFiles)
 		});
 };
 
@@ -39,7 +41,6 @@ const avaExit = () => {
 	setTimeout(() => {
 		processAdapter.exit(0); // eslint-disable-line xo/no-process-exit
 	}, delay);
-	return;
 };
 
 const teardown = () => {
@@ -60,17 +61,16 @@ const teardown = () => {
 		return serializeError(rejection.reason);
 	});
 
-	processAdapter.send('unhandledRejections', { rejections });
+	processAdapter.send('unhandledRejections', {rejections});
 	setTimeout(exit, 100);
-	return;
 };
 
 ipcRenderer.on('ava-message', (event, name, data) => {
 	switch (name) {
 		case 'ava-teardown': return teardown();
 		case 'ava-exit': return avaExit();
+		default: process.emit(name, data);
 	}
 	process.emit(name, data);
 });
-
 

@@ -1,12 +1,12 @@
 'use strict';
 
-const { app } = require('electron');
+const {app} = require('electron');
 const serializeError = require('ava/lib/serialize-error');
 const messages = require('./messages');
 const initializeRenderer = require('./initialize-renderer');
 
 function onUncaughtException(err) {
-	console.error(err)
+	console.error(err);
 	messages.sendToProcess('uncaughtException', {
 		exception: serializeError(err)
 	});

@@ -8,7 +8,7 @@
     "lint": "xo",
     "test:renderer": "node cli.js test/renderer/*.test.js test/common/*.test.js --renderer",
     "test:main": "node cli.js test/common/*.test.js",
-    "test": "run-p test:*"
+    "test": "npm run lint && run-p test:*"
   },
   "repository": "",
   "keywords": [],
@@ -23,35 +23,21 @@
     "react": "^15.6.1",
     "react-dom": "^15.6.1",
     "react-test-renderer": "^15.6.1",
+    "reg-suit": "0.0.12",
     "xo": "^0.18.2"
   },
   "xo": {
+    "ignores": [
+      "test/**"
+    ],
     "envs": [
-      "node"
+      "node",
+      "browser",
+      "react"
     ],
     "rules": {
-      "no-use-extend-native/no-use-extend-native": "off",
-      "no-eq-null": "off",
-      "eqeqeq": [
-        "error",
-        "always",
-        {
-          "null": "ignore"
-        }
-      ]
-    },
-    "overrides": [
-      {
-        "files": [
-          "renderer/*.js",
-          "test/renderer.js"
-        ],
-        "envs": [
-          "node",
-          "browser"
-        ]
-      }
-    ]
+      "no-use-extend-native/no-use-extend-native": "off"
+    }
   },
   "babel": {
     "presets": [

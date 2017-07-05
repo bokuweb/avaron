@@ -1,5 +1,5 @@
 function sendMessageToProcess(name, data) {
-	process.send({ name: `ava-${name}`, data, ava: true });
+	process.send({name: `ava-${name}`, data, ava: true});
 }
 
 function sendMessageToWindow(window, message) {
