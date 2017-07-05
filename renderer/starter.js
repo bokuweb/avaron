@@ -1,17 +1,17 @@
 'use strict';
 
-// eslint-disable import/no-unassigned-import
+/* eslint-disable import/no-unassigned-import */
 
-const { ipcRenderer } = require('electron');
+const {ipcRenderer} = require('electron');
 const serializeError = require('ava/lib/serialize-error');
 
 // Below code is stub for ava process.send.
-process.send = (name, data) => { };
+process.send = () => { };
 
 // Below code is stub for Node.js process.channel or process._channel.
 process.channel = {
 	unref() { },
-	ref() { },
+	ref() { }
 };
 
 function onUncaughtException(err) {

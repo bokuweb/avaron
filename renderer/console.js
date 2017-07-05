@@ -1,7 +1,7 @@
 'use strict';
 
 const util = require('util');
-const { ipcRenderer } = require('electron');
+const {ipcRenderer} = require('electron');
 
 const createOutput = channel => (format, ...args) => {
 	const output = util.format(format, ...args);

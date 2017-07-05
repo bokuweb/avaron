@@ -1,6 +1,5 @@
 'use strict';
 
-const util = require('util');
 const fs = require('fs');
 const Api = require('ava/api');
 const fork = require('./lib/fork');
@@ -13,10 +12,10 @@ module.exports = class ElectronApi extends Api {
 		const resolvedfpath = fs.realpathSync(file);
 		precompiled[resolvedfpath] = hash;
 
-		const options = Object.assign({}, this.options, { precompiled });
+		const options = Object.assign({}, this.options, {precompiled});
 		const emitter = fork(file, options, execArgv);
 		runStatus.observeFork(emitter);
 
 		return emitter;
 	}
-}
+};
