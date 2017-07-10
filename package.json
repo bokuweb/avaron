@@ -23,6 +23,7 @@
     "react": "^15.6.1",
     "react-dom": "^15.6.1",
     "react-test-renderer": "^15.6.1",
+    "reg-suit": "0.0.16",
     "xo": "^0.18.2"
   },
   "xo": {
