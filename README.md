@@ -48,8 +48,8 @@ That's all! You can now run your Electron tests in AVA using `yarn test` or `npm
       
 You can capture the following with a real browser when using `Avaron`.
 
-![](https://github.com/bokuweb/avaron/blob/master/docs/capture.png?raw=true)
-
+![](https://github.com/bokuweb/avaron/blob/master/docs/capture.png?raw=true)   
+   
 This sample is using `material-ui`'s `Table` component.   
 Please see, screenshot test sample https://github.com/bokuweb/avaron/blob/master/test/renderer/renderer.test.js#L1-L72
 
@@ -149,19 +149,19 @@ adding the `windowOptions` option to your config. This object will then be passe
 
 ```json
 {
-	"scripts": {
-		"test": "avaron"
-	},
-	"devDependencies": {
-		"avaron": "*"
-	},
-	"avaron": {
+  "scripts": {
+    "test": "avaron"
+  },
+  "devDependencies": {
+    "avaron": "*"
+  },
+  "avaron": {
     "renderer": true,
     "fixture": "./fixture.html",
     "windowOptions": {
-			"title": "avaron"
-		}    
-	}
+      "title": "avaron"
+    }    
+  }
 }
 ```
 
