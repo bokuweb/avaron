@@ -50,6 +50,9 @@ You can capture the following with a real browser with `Avaron`.
 
 ![](https://github.com/bokuweb/avaron/blob/master/docs/capture.png?raw=true)
 
+This sample is using `material-ui`'s `Table` component.   
+Please see, screenshot test sample https://github.com/bokuweb/avaron/blob/master/test/renderer/renderer.test.js#L1-L72
+
 ## Command line interface
 
 ```sh
