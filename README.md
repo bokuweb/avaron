@@ -46,7 +46,7 @@ That's all! You can now run your Electron tests in AVA using `yarn test` or `npm
 - I want to take screenshot of DOM.
    
       
-You can capture the following with a real browser with `Avaron`.
+You can capture the following with a real browser when using `Avaron`.
 
 ![](https://github.com/bokuweb/avaron/blob/master/docs/capture.png?raw=true)
 
