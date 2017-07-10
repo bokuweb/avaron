@@ -11,9 +11,7 @@ Avaron forked from vdbwouter/electron-ava.
 ## Table of Contents
 
 - [Usage](#usage)
-- [Command line interface](#command line interface)
-- [Renderer process tests](#renderer process tests)
-- [BrowserWindow options](#browserWindow options)
+- [Why?](#why?)
 - [Test](#test)
 - [Contribute](#contribute)
 - [License](#license)
@@ -42,6 +40,11 @@ Then add the following in your `package.json`:
 
 That's all! You can now run your Electron tests in AVA using `yarn test` or `npm test`.
 
+## Why?
+
+- I want to run tests on real browser with `AVA`.
+- I want to take screenshot of DOM.
+
 ## Command line interface
 
 ```sh
@@ -68,6 +71,7 @@ That's all! You can now run your Electron tests in AVA using `yarn test` or `npm
     avaron test.js test2.js
     avaron test-*.js
     avaron test
+    avaron test --renderer
 
   Default patterns when no arguments:
   test.js test-*.js test/**/*.js **/__tests__/**/*.js **/*.test.js
@@ -122,8 +126,8 @@ import test from 'ava';
 import { screenshot } from 'avaron';
 
 test('should capture', async t => {
-	await screenshot('path_to_screenshot.png');
-  t.pass();
+        await screenshot('path_to_screenshot.png');
+        t.pass();
 });
 ```   
    
@@ -158,7 +162,7 @@ adding the `windowOptions` option to your config. This object will then be passe
 | name                         | Default     | Description                                                                                                                     |
 | :--------------------------- | :-----------| :------------------------------------------------------------------------------------------------------------------------------ |
 | renderer                     | `false`     | If set `true`, your tests run in the renderer process. In other words you can test with a real browser (chromium)               |
-| fixture                      |  undefined  | You can custom html file for renderer test. If omitted, uses avaron's own fixture.html file.                                    |
+| fixture                      |  undefined  | You can custom html file for renderer test. If omitted, uses Avaron's own fixture.html file.                                    |
 
 
 
