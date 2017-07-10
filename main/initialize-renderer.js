@@ -1,7 +1,7 @@
 /* eslint-disable import/no-unassigned-import */
 
 'use strict';
-const { ipcMain } = require('electron');
+const {ipcMain} = require('electron');
 const createWindow = require('./create-window');
 const messages = require('./messages');
 

@@ -1,7 +1,7 @@
 /* eslint-disable import/no-extraneous-dependencies */
 
 'use strict';
-const { ipcRenderer } = require('electron');
+const {ipcRenderer} = require('electron');
 const serializeError = require('ava/lib/serialize-error');
 const currentlyUnhandled = require('currently-unhandled')();
 const processAdapter = require('ava/lib/process-adapter');
@@ -41,7 +41,6 @@ const avaExit = () => {
 	setTimeout(() => {
 		processAdapter.exit(0); // eslint-disable-line xo/no-process-exit
 	}, delay);
-	return;
 };
 
 const teardown = () => {
@@ -62,17 +61,14 @@ const teardown = () => {
 		return serializeError(rejection.reason);
 	});
 
-	processAdapter.send('unhandledRejections', { rejections });
+	processAdapter.send('unhandledRejections', {rejections});
 	setTimeout(exit, 100);
-	return;
 };
 
 ipcRenderer.on('ava-message', (event, name, data) => {
 	switch (name) {
 		case 'ava-teardown': return teardown();
 		case 'ava-exit': return avaExit();
-		default: 
+		default: return process.emit(name, data);
 	}
-	process.emit(name, data);
 });
-

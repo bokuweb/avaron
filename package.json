@@ -54,8 +54,7 @@
       "babel-polyfill"
     ],
     "windowOptions": {
-      "title": "avaron",
-      "show": true
+      "title": "avaron"
     },
     "fixture": "./fixture.html"
   },
