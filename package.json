@@ -13,7 +13,13 @@
     "test:update": "run-s test:renderer-update test:main-update"
   },
   "repository": "https://github.com/bokuweb/avaron",
-  "keywords": ["ava", "test", "electron", "snapshot", "screenshot"],
+  "keywords": [
+    "ava",
+    "test",
+    "electron",
+    "snapshot",
+    "screenshot"
+  ],
   "author": "bokuweb",
   "license": "MIT",
   "devDependencies": {
@@ -21,6 +27,7 @@
     "babel-preset-es2015": "^6.24.1",
     "babel-preset-react": "^6.24.1",
     "babel-preset-stage-0": "^6.24.1",
+    "material-ui": "^0.18.6",
     "npm-run-all": "^4.0.2",
     "react": "^15.6.1",
     "react-dom": "^15.6.1",

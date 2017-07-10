@@ -148,9 +148,9 @@ adding the `windowOptions` option to your config. This object will then be passe
 		"avaron": "*"
 	},
 	"avaron": {
-		"renderer": true,
+    "renderer": true,
     "fixture": "./fixture.html",
-		"windowOptions": {
+    "windowOptions": {
 			"title": "avaron"
 		}    
 	}
