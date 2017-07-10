@@ -6,9 +6,9 @@
   "scripts": {
     "lint": "xo",
     "test:renderer": "node cli.js test/common/*.test.js test/renderer/*.test.js --renderer",
-    "test:main": "node cli.js test/common/*.test.js",
-    "test:renderer-update": "node cli.js test/renderer/*.test.js --renderer -u",
-    "test:main-update": "node cli.js test/common/*.test.js -u",
+    "test:main": "node cli.js test/common/*.test.js test/main/*.test.js",
+    "test:renderer-update": "npm run test:renderer -- -u",
+    "test:main-update": "npm run test:main -- -u",
     "test": "run-s test:renderer test:main",
     "test:update": "run-s test:renderer-update test:main-update"
   },

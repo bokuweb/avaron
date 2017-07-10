@@ -24,6 +24,5 @@ test('should isAvaron return true', async t => {
 
 test('should get currentWindow', async t => {
 	const win = getCurrentWindow();
-	console.log(win)
 	t.is(Boolean(getCurrentWindow()), true);
 });
