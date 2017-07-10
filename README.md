@@ -44,6 +44,11 @@ That's all! You can now run your Electron tests in AVA using `yarn test` or `npm
 
 - I want to run tests on real browser with `AVA`.
 - I want to take screenshot of DOM.
+   
+      
+You can capture the following with a real browser with `Avaron`.
+
+![](https://github.com/bokuweb/avaron/blob/master/docs/capture.png?raw=true)
 
 ## Command line interface
 
