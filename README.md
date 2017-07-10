@@ -2,7 +2,7 @@
 
 [![Build Status](https://travis-ci.org/bokuweb/avaron.svg?branch=master)](https://travis-ci.org/bokuweb/avaron)
 [![Build status](https://ci.appveyor.com/api/projects/status/uegh5k030l8xb5nb/branch/master?svg=true)](https://ci.appveyor.com/project/bokuweb/avaron/branch/master)
-[![Version](https://img.shields.io/npm/v/react-rnd.svg)](https://www.npmjs.com/package/avaron)
+[![Version](https://img.shields.io/npm/v/avaron.svg)](https://www.npmjs.com/package/avaron)
 ![XO code style](https://img.shields.io/badge/code_style-XO-5ed9c7.svg)
    
 AVARON forked from electron-ava.
