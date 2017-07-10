@@ -1,6 +1,7 @@
-
 import test from 'ava';
 
-test('1 equals 1', async t => {
-	t.is(1, 1);
+const add = (a, b) => a + b;
+
+test('add test', async t => {
+	t.is(add(1, 2), 3);
 });

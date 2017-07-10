@@ -2,16 +2,18 @@
   "name": "avaron",
   "version": "0.0.3",
   "description": "",
-  "main": "main.js",
+  "main": "index.js",
   "scripts": {
-    "start": "",
     "lint": "xo",
-    "test:renderer": "node cli.js test/renderer/*.test.js --renderer",
+    "test:renderer": "node cli.js test/common/*.test.js test/renderer/*.test.js --renderer",
     "test:main": "node cli.js test/common/*.test.js",
-    "test": "run-s test:*"
+    "test:renderer-update": "node cli.js test/renderer/*.test.js --renderer -u",
+    "test:main-update": "node cli.js test/common/*.test.js -u",
+    "test": "run-s test:renderer test:main",
+    "test:update": "run-s test:renderer-update test:main-update"
   },
-  "repository": "",
-  "keywords": [],
+  "repository": "https://github.com/bokuweb/avaron",
+  "keywords": ["ava", "test", "electron", "snapshot", "screenshot"],
   "author": "bokuweb",
   "license": "MIT",
   "devDependencies": {
@@ -52,7 +54,8 @@
       "babel-polyfill"
     ],
     "windowOptions": {
-      "title": "My fancy tests"
+      "title": "avaron",
+      "show": true
     },
     "fixture": "./fixture.html"
   },

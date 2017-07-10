@@ -5,7 +5,7 @@ const url = require('url');
 const path = require('path');
 
 module.exports = (options, argv) => {
-	const actualOptions = Object.assign({ show: true, width: 800, height: 600, webPreferences: { devTools: true } }, options.windowOptions);
+	const actualOptions = Object.assign({ show: false, width: 800, height: 600 }, options.windowOptions);
 	const window = new BrowserWindow(actualOptions);
 	const fixture = options.fixture
 		? path.resolve(process.cwd(), options.fixture)
@@ -18,7 +18,7 @@ module.exports = (options, argv) => {
 	window.webContents.on('dom-ready', (e) => {
 		window.webContents.executeJavaScript(`require("${starter}");`);
 	});
-	window.webContents.openDevTools();
+	// window.webContents.openDevTools();
 	window.loadURL(windowURL);
 	return window;
 };

@@ -83,7 +83,7 @@ Your `package.json` then should look like this:
 		"test": "avaron"
 	},
 	"devDependencies": {
-		"avaron": "^0.1.0"
+		"avaron": "*"
 	},
 	"avaron": {
 		"renderer": true
@@ -106,7 +106,7 @@ to look like this:
 		"test": "avaron"
 	},
 	"devDependencies": {
-		"avaron": "^0.1.0"
+		"avaron": "*"
 	},
 	"avaron": {
 		"renderer": true,

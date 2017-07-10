@@ -7,7 +7,7 @@ module.exports = {
 			if (!window.__avaron__) {
 				return null;
 			}
-			const {remote} = require('electron');
+			const { remote } = require('electron');
 			return remote.getCurrentWindow();
 		}
 	},
@@ -17,7 +17,7 @@ module.exports = {
 				return resolve();
 			}
 			const fs = require('fs');
-			const {remote} = require('electron');
+			const { remote } = require('electron');
 			const mkdirp = require('make-dir');
 			const path = require('path');
 			const win = remote.getCurrentWindow();
@@ -35,7 +35,7 @@ module.exports = {
 							reject(err);
 						});
 				});
-			}, {timeout: 1000});
+			}, { timeout: 1000 });
 		});
 	}
 };

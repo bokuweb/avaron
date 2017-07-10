@@ -1,8 +1,0 @@
-{
-  "core": {
-    "workingDir": "/Users/ueki/misc/avaron/reg",
-    "actualDir": "actual",
-    "expectedDir": "expected"
-  },
-  "plugins": {}
-}
