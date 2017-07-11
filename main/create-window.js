@@ -12,11 +12,11 @@ module.exports = (options, argv) => {
 		path.resolve(__dirname, '../renderer/index.html');
         console.log(fixture)
 	const windowURL = getURL(argv, fixture);
-	console.log(window.URL)
+	console.log(windowURL)
 	const rendererDir = path.resolve(__dirname, '../renderer');
 	console.log(rendererDir)
 	const starter = options.fixture ?
-		path.resolve(process.cwd(), path.join(path.relative(path.dirname(fixture), rendererDir), 'starter.js')) :
+		path.join(path.relative(path.dirname(fixture), rendererDir), 'starter.js') :
 		'./starter.js';
 	console.log(starter)
 	window.webContents.on('dom-ready', ( ) => {
