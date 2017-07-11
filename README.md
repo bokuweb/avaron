@@ -13,11 +13,26 @@ Avaron forked from vdbwouter/electron-ava.
 
 ## Table of Contents
 
-- [Usage](#usage)
 - [Why?](#why?)
+- [Usage](#usage)
+- [Samples](#samples)
+- [CI](#ci)
 - [Test](#test)
 - [Contribute](#contribute)
 - [License](#license)
+
+## Why?
+
+- I want to run tests on real browser with `AVA`.
+- I want to take screenshot of DOM.
+   
+      
+You can capture the following image with a real browser when using `Avaron`.   
+   
+This sample is using `material-ui`'s `DatePickerDialog` component.    
+Please see also, screenshot test sample     https://github.com/bokuweb/avaron/blob/master/test/renderer/renderer.test.js   
+
+![](https://github.com/bokuweb/avaron/blob/master/docs/capture.png?raw=true)   
 
 ## Usage
 
@@ -41,21 +56,7 @@ Then add the following in your `package.json`:
 }
 ```
 
-That's all! You can now run your Electron tests in AVA using `yarn test` or `npm test`.
-
-## Why?
-
-- I want to run tests on real browser with `AVA`.
-- I want to take screenshot of DOM.
-   
-      
-You can capture the following image with a real browser when using `Avaron`.   
-   
-This sample is using `material-ui`'s `DatePickerDialog` component.    
-Please see also, screenshot test sample     https://github.com/bokuweb/avaron/blob/master/test/renderer/renderer.test.js   
-
-![](https://github.com/bokuweb/avaron/blob/master/docs/capture.png?raw=true)   
-   
+That's all! You can now run your Electron tests in AVA using `yarn test` or `npm test`.   
 
 ## Command line interface
 
@@ -177,6 +178,17 @@ adding the `windowOptions` option to your config. This object will then be passe
 | fixture                      |  undefined  | You can custom html file for renderer test. If omitted, uses Avaron's own fixture.html file.                                    |
 
 
+## Samples
+
+- [react-avaron-sample](https://github.com/bokuweb/react-avaron-sample) - React + avaron test sample
+
+## CI
+
+If you want to run tests on CI, please set xvfb.
+Please see also, these files.
+
+- TravisCI - https://github.com/bokuweb/react-avaron-sample/blob/master/.travis.yml
+- CircleCI - https://github.com/bokuweb/react-avaron-sample/blob/master/circle.yml
 
 
 
