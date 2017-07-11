@@ -5,15 +5,15 @@ module.exports = {
 	},
 	getCurrentWindow() {
 		if (typeof window === 'undefined') return;
-		if (window && window.__avaron__) {
+		if (window.__avaron__) {
 			const { remote } = require('electron');
 			return remote.getCurrentWindow();
 		}
 	},
 	screenshot(imagePath) {
-		if (typeof window === 'undefined') return;
 		return new Promise((resolve, reject) => {
-			if (window && window.__avaron__) {
+			if (typeof window === 'undefined') return resolve();
+			if (!window.__avaron__) {
 				return resolve();
 			}
 			const fs = require('fs');
