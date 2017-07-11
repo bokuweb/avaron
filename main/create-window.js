@@ -7,13 +7,13 @@ const path = require('path');
 module.exports = (options, argv) => {
 	const actualOptions = Object.assign({show: false, width: 800, height: 600}, options.windowOptions);
 	const window = new BrowserWindow(actualOptions);
-	const fixture = options.fixture ?
+	const fixture = false /* options.fixture */ ?
 		path.resolve(process.cwd(), options.fixture) :
-		path.resolve(path.resolve(__dirname), '../renderer/index.html');
+		path.resolve(__dirname, '../renderer/index.html');
 	console.log(path.normarize(fixture))
 	const windowURL = getURL(argv, path.normarize(fixture));
         console.log(windowURL)
-	const rendererDir = path.resolve(path.resolve(__dirname), '../renderer');
+	const rendererDir = path.resolve(__dirname, '../renderer');
 	const starter = options.fixture ?
 		path.resolve(process.cwd(), path.relative(path.dirname(fixture), rendererDir) + '/starter.js') :
 		'./starter.js';
