@@ -1,6 +1,6 @@
 # 🚀  Avaron 🚀 
 
-🚀 AVA + Electron = Avaron 🚀
+🚀 AVA + Electron = Avaron 🚀   
 Run your test on real browser with AVA.
 
 [![Build Status](https://travis-ci.org/bokuweb/avaron.svg?branch=master)](https://travis-ci.org/bokuweb/avaron)
