@@ -8,14 +8,14 @@ module.exports = (options, argv) => {
 	const actualOptions = Object.assign({show: false, width: 800, height: 600}, options.windowOptions);
 	const window = new BrowserWindow(actualOptions);
 	const fixture = options.fixture ?
-		path.resolve(process.cwd(), options.fixture) :
+		path.relative(__dirname, path.resolve(process.cwd(), options.fixture)) :
 		path.resolve(__dirname, '../renderer/index.html');
-	console.log(path.relative(__dirname, fixture))
-	const windowURL = getURL(argv, path.relative(process.cwd(), fixture));
+	console.log(fixture)
+	const windowURL = getURL(argv, fixture);
         console.log(windowURL)
 	const rendererDir = path.relative(process.cwd(), path.resolve(__dirname, '../renderer'));
 	const starter = options.fixture ?
-		path.resolve(process.cwd(), path.relative(path.dirname(fixture), rendererDir) + '/starter.js') :
+		path.join(rendererDir, 'starter.js') :
 		'./starter.js';
 	console.log(rendererDir)
 	window.webContents.on('dom-ready', ( ) => {
