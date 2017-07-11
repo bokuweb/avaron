@@ -16,7 +16,7 @@ module.exports = (options, argv) => {
 	const rendererDir = path.resolve(__dirname, '../renderer');
 	console.log(rendererDir)
 	const starter = options.fixture ?
-		path.join(path.relative(path.dirname(fixture), rendererDir), 'starter.js') :
+		path.join('./', path.relative(path.dirname(fixture), rendererDir), 'starter.js') :
 		'./starter.js';
 	console.log(starter)
 	window.webContents.on('dom-ready', ( ) => {
