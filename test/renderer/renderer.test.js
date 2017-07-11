@@ -3,7 +3,7 @@ import test from 'ava';
 import React from 'react';
 import { readFileSync } from 'fs';
 import { render } from 'react-dom';
-import { screenshot, isAvaron, getCurrentWindow } from '../../';
+import { screenshot, isAvaronRenderer, getCurrentWindow } from '../../';
 import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
 import DatePickerDialog from 'material-ui/DatePicker/DatePickerDialog';
 import injectTapEventPlugin from 'react-tap-event-plugin';
@@ -39,7 +39,7 @@ test('should capture react component screenshot', async t => {
 });
 
 test('should isAvaron return true', async t => {
-	t.is(Boolean(isAvaron()), true);
+	t.is(Boolean(isAvaronRenderer()), true);
 });
 
 test('should get currentWindow', async t => {

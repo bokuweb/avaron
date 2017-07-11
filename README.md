@@ -121,13 +121,13 @@ Your `package.json` then should look like this:
 
 ### API (Renderer process tests Only)
 
-### isAvaron(): boolean
+### isAvaronRenderer(): boolean
 
-Return `true`, when test is running on avaron.
+Return `true`, when test is running on avaron renderer.
 
-### getCurrentWindow(): ?Electron.BrowserWindow
+### getCurrentWindow(): ?Electron.BrowserWindow 
 
-Return current `BrowserWindow`, when test is running on avaron.
+Return current `BrowserWindow`, when test is running on avaron renderer.
 Return `null`, when running on other browser.
 
 ### screenshot(path: string): Promise\<void\>
