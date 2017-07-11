@@ -1,5 +1,8 @@
 # 🚀  Avaron 🚀 
 
+🚀 AVA + Electron = Avaron 🚀
+Run your test on real browser with AVA.
+
 [![Build Status](https://travis-ci.org/bokuweb/avaron.svg?branch=master)](https://travis-ci.org/bokuweb/avaron)
 [![Build status](https://ci.appveyor.com/api/projects/status/uegh5k030l8xb5nb/branch/master?svg=true)](https://ci.appveyor.com/project/bokuweb/avaron/branch/master)
 [![Version](https://img.shields.io/npm/v/avaron.svg)](https://www.npmjs.com/package/avaron)
