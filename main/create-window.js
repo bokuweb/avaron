@@ -11,7 +11,7 @@ module.exports = (options, argv) => {
 		path.resolve(process.cwd(), options.fixture) :
 		path.resolve(__dirname, '../renderer/index.html');
 	console.log(path.normarize(fixture))
-	const windowURL = getURL(argv, path.normarize(fixture));
+	const windowURL = getURL(argv, fixture);
         console.log(windowURL)
 	const rendererDir = path.resolve(__dirname, '../renderer');
 	const starter = options.fixture ?
