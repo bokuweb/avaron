@@ -10,7 +10,7 @@ module.exports = (options, argv) => {
 	const fixture = false /* options.fixture */ ?
 		path.resolve(process.cwd(), options.fixture) :
 		path.resolve(__dirname, '../renderer/index.html');
-	console.log(path.normarize(fixture))
+	console.log(fixture)
 	const windowURL = getURL(argv, fixture);
         console.log(windowURL)
 	const rendererDir = path.resolve(__dirname, '../renderer');
