@@ -53,8 +53,8 @@ You can capture the following with a real browser when using `Avaron`.
 
 ![](https://github.com/bokuweb/avaron/blob/master/docs/capture.png?raw=true)   
    
-This sample is using `material-ui`'s `Table` component.   
-Please see, screenshot test sample https://github.com/bokuweb/avaron/blob/master/test/renderer/renderer.test.js#L1-L72
+This sample is using `material-ui`'s `DatePickerDialog` component.   
+Please see also, screenshot test sample https://github.com/bokuweb/avaron/blob/master/test/renderer/renderer.test.js
 
 ## Command line interface
 

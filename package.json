@@ -31,6 +31,7 @@
     "npm-run-all": "^4.0.2",
     "react": "^15.6.1",
     "react-dom": "^15.6.1",
+    "react-tap-event-plugin": "^2.0.1",
     "react-test-renderer": "^15.6.1",
     "reg-suit": "0.0.16",
     "xo": "^0.18.2"
