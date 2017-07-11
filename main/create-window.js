@@ -10,15 +10,11 @@ module.exports = (options, argv) => {
 	const fixture = options.fixture ?
 		path.resolve(process.cwd(), options.fixture) :
 		path.resolve(__dirname, '../renderer/index.html');
-        console.log(fixture)
 	const windowURL = getURL(argv, fixture);
-	console.log(windowURL)
 	const rendererDir = path.resolve(__dirname, '../renderer');
-	console.log(rendererDir)
 	const starter = options.fixture ?
 		'./' + path.join(path.relative(path.dirname(fixture), rendererDir), 'starter.js').replace(/\\/g, '/') :
 		'./starter.js';
-	console.log(starter)
 	window.webContents.on('dom-ready', ( ) => {
 		window.webContents.executeJavaScript(`
 			document.body.style.backgroundColor = "#fff";
