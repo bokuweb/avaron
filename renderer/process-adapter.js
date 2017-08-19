@@ -1,7 +1,7 @@
 /* eslint-disable import/no-extraneous-dependencies */
 
 'use strict';
-const {ipcRenderer} = require('electron');
+const { ipcRenderer } = require('electron');
 const serializeError = require('ava/lib/serialize-error');
 const currentlyUnhandled = require('currently-unhandled')();
 const processAdapter = require('ava/lib/process-adapter');
@@ -17,7 +17,6 @@ processAdapter.send = (name, data) => {
 const dependencies = new Set();
 processAdapter.installDependencyTracking(dependencies, processAdapter.opts.file);
 
-const touchedFiles = new Set();
 
 const exit = () => {
 	// Include dependencies in the final teardown message. This ensures the full
@@ -26,17 +25,7 @@ const exit = () => {
 	processAdapter.send('teardown',
 		{
 			dependencies: Array.from(dependencies),
-			touchedFiles: Array.from(touchedFiles)
 		});
-};
-
-const avaExit = () => {
-	// Use a little delay when running on AppVeyor (because it's shit)
-	const delay = process.env.AVA_APPVEYOR ? 100 : 0;
-
-	setTimeout(() => {
-		processAdapter.exit(0); // eslint-disable-line xo/no-process-exit
-	}, delay);
 };
 
 const teardown = () => {
@@ -48,23 +37,25 @@ const teardown = () => {
 
 	let rejections = currentlyUnhandled();
 
-	if (rejections.length === 0) {
-		exit();
-		return;
+	if (rejections.length > 0) {
+		rejections = rejections.map(rejection => {
+			let reason = rejection.reason;
+			if (!isObj(reason) || typeof reason.message !== 'string') {
+				reason = {
+					message: String(reason)
+				};
+			}
+			return serializeError(reason);
+		});
+		adapter.send('unhandledRejections', { rejections });
 	}
-
-	rejections = rejections.map(rejection => {
-		return serializeError(rejection.reason);
-	});
-
-	processAdapter.send('unhandledRejections', {rejections});
-	setTimeout(exit, 100);
+	processAdapter.send('teardown', { dependencies: Array.from(dependencies) });
 };
 
 ipcRenderer.on('ava-message', (event, name, data) => {
 	switch (name) {
 		case 'ava-teardown': return teardown();
-		case 'ava-exit': return avaExit();
+		case 'ava-exit': return processAdapter.exit(0); // eslint-disable-line xo/no-process-exit;
 		default: return process.emit(name, data);
 	}
 });
