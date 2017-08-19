@@ -5,7 +5,6 @@ const {ipcRenderer} = require('electron');
 const serializeError = require('ava/lib/serialize-error');
 const currentlyUnhandled = require('currently-unhandled')();
 const processAdapter = require('ava/lib/process-adapter');
-// Const { setRunner } = require('ava/lib/test-worker');
 
 let tearingDown = false;
 
@@ -14,9 +13,6 @@ processAdapter.exit = window.close;
 processAdapter.send = (name, data) => {
 	ipcRenderer.send('ava-message', name, data);
 };
-
-processAdapter.installSourceMapSupport();
-processAdapter.installPrecompilerHook();
 
 const dependencies = new Set();
 processAdapter.installDependencyTracking(dependencies, processAdapter.opts.file);
