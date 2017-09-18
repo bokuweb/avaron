@@ -5,6 +5,7 @@ const {ipcRenderer} = require('electron');
 const serializeError = require('ava/lib/serialize-error');
 const currentlyUnhandled = require('currently-unhandled')();
 const processAdapter = require('ava/lib/process-adapter');
+const isObj = require('is-obj');
 
 let tearingDown = false;
 
@@ -16,16 +17,6 @@ processAdapter.send = (name, data) => {
 
 const dependencies = new Set();
 processAdapter.installDependencyTracking(dependencies, processAdapter.opts.file);
-
-const exit = () => {
-	// Include dependencies in the final teardown message. This ensures the full
-	// set of dependencies is included no matter how the process exits, unless
-	// it flat out crashes.
-	processAdapter.send('teardown',
-		{
-			dependencies: Array.from(dependencies)
-		});
-};
 
 const teardown = () => {
 	// AVA-teardown can be sent more than once
@@ -46,7 +37,7 @@ const teardown = () => {
 			}
 			return serializeError(reason);
 		});
-		adapter.send('unhandledRejections', {rejections});
+		processAdapter.send('unhandledRejections', {rejections});
 	}
 	processAdapter.send('teardown', {dependencies: Array.from(dependencies)});
 };
