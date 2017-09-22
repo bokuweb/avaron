@@ -68,7 +68,7 @@
   },
   "dependencies": {
     "ava": "^0.22.0",
-    "electron": "^1.7.6",
+    "electron": "1.7.6",
     "make-dir": "^1.0.0"
   },
   "bin": {
