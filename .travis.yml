@@ -17,5 +17,6 @@ install:
   - npm install -g argos-cli
   - npm install -g glob
 script:
+  - npm run lint
   - npm test
   - ARGOS_COMMIT=$TRAVIS_COMMIT ARGOS_BRANCH=$TRAVIS_BRANCH argos upload screenshots --token $ARGOS_TOKEN || true  
