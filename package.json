@@ -56,15 +56,17 @@
     "require": [],
     "windowOptions": {
       "title": "avaron",
-      "show": true
+      "show": false
     },
     "fixture": "./fixture.html"
   },
   "dependencies": {
     "ava": "^1.1.0",
-    "electron": "^4.0.2",
     "make-dir": "^1.3.0",
     "require-hacker": "^3.0.1"
+  },
+  "peerDependencies": {
+    "electron": ">= 2"
   },
   "bin": {
     "avaron": "./cli.js"

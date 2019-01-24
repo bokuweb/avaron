@@ -10,13 +10,11 @@ addons:
 before_install:
   - export DISPLAY=':99.0'
   - Xvfb :99 -screen 0 1024x768x24 > /dev/null 2>&1 &
-  - export ARGOS_TOKEN=4cd2c7e95daddab0eb5e88c61d4425d160553897
 
 install:
   - npm install
-  - npm install -g argos-cli
-  - npm install -g glob
+  - npm install electron@2
 script:
   - npm run lint
-  - npm test
-  - ARGOS_COMMIT=$TRAVIS_COMMIT ARGOS_BRANCH=$TRAVIS_BRANCH argos upload screenshots --token $ARGOS_TOKEN || true  
+  - npm run test:main
+  - npm run test:renderer
