@@ -25,6 +25,6 @@ function addRendererEventHandlers(window) {
   });
 
   window.webContents.once("did-finish-load", () => {
-    setTimeout(() => window.webContents.send("test-start"));
+    setTimeout(() => window.webContents.send("test-start"), 100);
   });
 }

@@ -2,8 +2,23 @@
 
 /* eslint-disable import/no-unassigned-import */
 require("ava/lib/worker/load-chalk");
+
 const { ipcRenderer } = require("electron");
 const serializeError = require("ava/lib/serialize-error");
+const require_hacker = require("require-hacker");
+const fs = require("fs");
+const path = require("path");
+
+const hook = require_hacker.global_hook("ipc", p => {
+  if (/\.\/ipc/.test(p)) {
+    const source = fs.readFileSync(
+      path.resolve(__dirname, "./ipc.js"),
+      "utf-8"
+    );
+    return { source, path };
+  }
+  return;
+});
 
 window.__avaron__ = true;
 
@@ -15,6 +30,9 @@ process.channel = {
   unref() {},
   ref() {}
 };
+
+// Use window.close instead of process.exit
+process.exit = () => window.close();
 
 function onUncaughtException(err) {
   ipcRenderer.send("message", "uncaughtException", {
@@ -35,6 +53,6 @@ require("./console");
 
 // Ensure the tests only run once
 ipcRenderer.once("test-start", () => {
-  require("./subprocess");
+  require("ava/lib/worker/subprocess");
   process.removeListener("uncaughtException", onUncaughtException);
 });
