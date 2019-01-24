@@ -5,9 +5,6 @@ import { render } from "react-dom";
 import { screenshot, isAvaronRenderer, getCurrentWindow } from "../../";
 import MuiThemeProvider from "material-ui/styles/MuiThemeProvider";
 import DatePickerDialog from "material-ui/DatePicker/DatePickerDialog";
-// import injectTapEventPlugin from "react-tap-event-plugin";
-
-// injectTapEventPlugin();
 
 let datePicker;
 
@@ -25,20 +22,19 @@ const Example = () => (
 );
 
 test("should capture react component screenshot", async t => {
-  // render(<div>Hello</div>, document.querySelector(".main"));
-  // datePicker.show();
-  // const path = "screenshots/should_capture_react_component_screenshot.png";
-  // await new Promise(resolve => setTimeout(() => resolve(), 200));
-  // await screenshot(path);
-  // try {
-  //   const png = readFileSync(path);
-  //   t.is(!!png, true);
-  // } catch (e) {
-  //   console.error(e);
-  //   t.fail();
-  // }
-  // t.pass();
-  t.pass()
+  render(<Example />, document.querySelector("body"));
+  datePicker.show();
+  const path = "screenshots/should_capture_react_component_screenshot.png";
+  await new Promise(resolve => setTimeout(() => resolve(), 200));
+  await screenshot(path);
+  try {
+    const png = readFileSync(path);
+    t.is(!!png, true);
+  } catch (e) {
+    console.error(e);
+    t.fail();
+  }
+  t.is(!!document.querySelector, true);
 });
 
 test("should isAvaron return true", async t => {

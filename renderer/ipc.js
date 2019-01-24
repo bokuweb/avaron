@@ -12,7 +12,6 @@ ipcRenderer.on("message", (sender, message) => {
   if (!message.ava) {
     return;
   }
-
   switch (message.ava.type) {
     case "peer-failed":
       emitter.emit("peerFailed");
@@ -43,6 +42,7 @@ function unref() {
 exports.unref = unref;
 
 let pendingPings = Promise.resolve();
+
 function flush() {
   channel.ref();
   const promise = pendingPings

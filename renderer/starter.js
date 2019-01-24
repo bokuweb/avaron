@@ -9,7 +9,7 @@ const require_hacker = require("require-hacker");
 const fs = require("fs");
 const path = require("path");
 
-const hook = require_hacker.global_hook("ipc", p => {
+require_hacker.global_hook("ipc", p => {
   if (/\.\/ipc/.test(p)) {
     const source = fs.readFileSync(
       path.resolve(__dirname, "./ipc.js"),

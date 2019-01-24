@@ -40,6 +40,7 @@ module.exports = (options = {}, argv) => {
 		`);
   });
   // Window.webContents.openDevTools();
+  // console.log(windowURL)
   window.loadURL(windowURL);
   return window;
 };
