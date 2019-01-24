@@ -22,7 +22,7 @@ const Example = () => (
 );
 
 test("should capture react component screenshot", async t => {
-  render(<Example />, document.querySelector("body"));
+  render(<Example />, document.querySelector(".main"));
   datePicker.show();
   const path = "screenshots/should_capture_react_component_screenshot.png";
   await new Promise(resolve => setTimeout(() => resolve(), 200));

@@ -20,6 +20,19 @@ require_hacker.global_hook("ipc", p => {
   return;
 });
 
+require_hacker.global_hook("now-and-timers", p => {
+  if (/now-and-timers/.test(p)) {
+    const source = `module.exports = {
+	   now: Date.now,
+	   setImmediate: window.setImmediate,
+	   setTimeout: window.setTimeout,	   
+	   setInterval: window.setInterval, 
+	 }`;
+    return { source, path };
+  }
+  return;
+});
+
 window.__avaron__ = true;
 
 // Below code is stub for ava process.send.
