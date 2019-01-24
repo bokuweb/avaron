@@ -1,30 +1,30 @@
 /* eslint-disable import/no-unassigned-import */
 
-'use strict';
-const {ipcMain} = require('electron');
-const createWindow = require('./create-window');
-const messages = require('./messages');
+"use strict";
 
-require('./renderer-console');
+const { ipcMain } = require("electron");
+const createWindow = require("./create-window");
+
+require("./renderer-console");
 
 module.exports = opts => {
-	const window = createWindow(opts, process.argv);
-	addRendererEventHandlers(window);
+  const window = createWindow(opts, process.argv);
+  addRendererEventHandlers(window);
 };
 
 function addRendererEventHandlers(window) {
-	ipcMain.on('ava-message', (event, name, data) => {
-		messages.sendToProcess(name, data);
-	});
+  ipcMain.on("message", (event, name, data) => {
+    process.send(name);
+  });
 
-	process.on('message', message => {
-		if (!message.ava) {
-			return;
-		}
-		messages.sendToWindow(window, message);
-	});
+  process.on("message", message => {
+    if (!message.ava) {
+      return;
+    }
+    window.webContents.send("message", message);
+  });
 
-	window.webContents.once('did-finish-load', () => {
-		window.webContents.send('test-start');
-	});
+  window.webContents.once("did-finish-load", () => {
+    setTimeout(() => window.webContents.send("test-start"));
+  });
 }
