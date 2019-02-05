@@ -9,7 +9,6 @@ install:
   - ps: Install-Product node $env:nodejs_version
   # install modules
   - npm install
-  - npm install electron@2
 
 # Post-install test scripts.
 test_script:

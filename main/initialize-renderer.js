@@ -23,8 +23,4 @@ function addRendererEventHandlers(window) {
     }
     window.webContents.send("message", message);
   });
-
-  window.webContents.once("did-finish-load", () => {
-    setTimeout(() => window.webContents.send("test-start"), 3000);
-  });
 }

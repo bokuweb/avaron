@@ -56,12 +56,16 @@
     "require": [],
     "windowOptions": {
       "title": "avaron",
-      "show": false
+      "show": false,
+      "webPreferences": {
+        "nodeIntegration": true
+      }
     },
     "fixture": "./fixture.html"
   },
   "dependencies": {
-    "ava": "^1.1.0",
+    "ava": "1.1",
+    "electron": "^5.0.0-beta.2",
     "make-dir": "^1.3.0",
     "require-hacker": "^3.0.1"
   },

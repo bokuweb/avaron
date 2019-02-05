@@ -7,7 +7,14 @@ const fs = require("fs");
 
 module.exports = (options = {}, argv) => {
   const actualOptions = Object.assign(
-    { show: false, width: 800, height: 600 },
+    {
+      show: false,
+      width: 800,
+      height: 600,
+      webPreferences: {
+        nodeIntegration: true
+      }
+    },
     options.windowOptions
   );
   const window = new BrowserWindow(actualOptions);
@@ -33,10 +40,10 @@ module.exports = (options = {}, argv) => {
         .join(path.relative(path.dirname(fixture), rendererDir), "starter.js")
         .replace(/\\/g, "/")
     : "./starter.js";
-  window.webContents.on("dom-ready", () => {
+  window.webContents.on("did-finish-load", () => {
     window.webContents.executeJavaScript(`
 			document.body.style.backgroundColor = "#fff";
-			require("${starter}");
+			 window.require("${starter}");
 		`);
   });
   // Window.webContents.openDevTools();

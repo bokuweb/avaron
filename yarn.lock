@@ -652,7 +652,7 @@ atob@^2.1.1:
   resolved "https://registry.yarnpkg.com/atob/-/atob-2.1.2.tgz#6d9517eb9e030d2436666651e86bd9f6f13533c9"
   integrity sha512-Wm6ukoaOGJi/73p/cl2GvLjTI5JM1k/O14isD73YML8StrH/7/lRFgmg8nICZgD3bZZvjwCGxtMOD3wWNAu8cg==
 
-ava@^1.1.0:
+ava@1.1:
   version "1.1.0"
   resolved "https://registry.yarnpkg.com/ava/-/ava-1.1.0.tgz#94364161abbaa401331ea48d349331df230745c0"
   integrity sha512-DVUsqzheRu3P0olLgZVWekAmJmO/a8bseest+vTBEGTm/lbrRdAjggzy7Vsj1+C7SCUn8GRXrmjZi1zvqaWb/A==
@@ -1667,10 +1667,19 @@ electron-download@^4.1.0:
     semver "^5.4.1"
     sumchecker "^2.0.2"
 
-electron@^4.0.2:
-  version "4.0.2"
-  resolved "https://registry.yarnpkg.com/electron/-/electron-4.0.2.tgz#b5e074c149841490825d0785aa2bc4f5e29bbea4"
-  integrity sha512-H0pmSvOVuC+Mq/+cYNXbCDBmqq5d1xYUVdBOjqGJuwuwJeP7qDHF35JA3cq+ARzq/CbwlXq98zdW6i6+x3U24g==
+electron-nightly@^6.0.0-nightly.20190123:
+  version "6.0.0-nightly.20190123"
+  resolved "https://registry.yarnpkg.com/electron-nightly/-/electron-nightly-6.0.0-nightly.20190123.tgz#ad01d7cbc229ee12f295e627d5ac0764a5c76ebc"
+  integrity sha512-kVZcEQFnfPpFte7lNxvJKPZANHS1oSVNA4xsK05IFUKduGboJ5hxOdIwQWgBa51UKpzo8dEvcAOe2uXcPr2YkA==
+  dependencies:
+    "@types/node" "^10.12.18"
+    electron-download "^4.1.0"
+    extract-zip "^1.0.3"
+
+electron@^5.0.0-beta.2:
+  version "5.0.0-beta.2"
+  resolved "https://registry.yarnpkg.com/electron/-/electron-5.0.0-beta.2.tgz#c16291138e65ccf81128269e219d0e4d6e46ea98"
+  integrity sha512-+GCN1/eTxReidBoFOxdXjF9QyOgZpjMOA0ZwpZrPFUpKrGxEdZTCP5hBt9HtN51SJkNw0XPC/aX89ForFgPqkg==
   dependencies:
     "@types/node" "^10.12.18"
     electron-download "^4.1.0"
@@ -1973,10 +1982,15 @@ eslint@^5.12.0:
     table "^5.0.2"
     text-table "^0.2.0"
 
-esm@^3.0.82, esm@^3.0.84:
+esm@^3.0.82:
   version "3.1.1"
   resolved "https://registry.yarnpkg.com/esm/-/esm-3.1.1.tgz#810d1144522547801a58a8ea01d6566d61578223"
   integrity sha512-Md2pR4IbR37UqubbgbA4+wiBorOEFB05Oo+g4WJW7W2ajiOhUfjZt77NzzCoQdrCb40GdKcflitm+XHDF053OQ==
+
+esm@^3.0.84:
+  version "3.2.1"
+  resolved "https://registry.yarnpkg.com/esm/-/esm-3.2.1.tgz#bd7c7dadad902ef167db93b266796e9cece587c7"
+  integrity sha512-+gxDed1gELD6mCn0P4TRPpknVJe7JvLtg3lJ9sRlLSpfw6J47QMGa5pi+10DN20VQ5z6OtbxjFoD9Z6PM+zb6Q==
 
 espower-location-detector@^1.0.0:
   version "1.0.0"

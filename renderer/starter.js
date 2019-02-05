@@ -63,9 +63,4 @@ function parseArgv() {
 process.argv = parseArgv();
 
 require("./console");
-
-// Ensure the tests only run once
-ipcRenderer.once("test-start", () => {
-  require("ava/lib/worker/subprocess");
-  process.removeListener("uncaughtException", onUncaughtException);
-});
+require("ava/lib/worker/subprocess");
