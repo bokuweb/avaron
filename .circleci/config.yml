@@ -3,7 +3,7 @@
 defaults: &defaults
   working_directory: ~/avaron
   docker:
-    - image: bokuweb/docker-node-browser
+    - image: bokuweb/node-xcb-xvfb
       environment:
         DISPLAY: ":99"
 
@@ -16,8 +16,12 @@ jobs:
       - run:
           name: Install dependencies
           command: |
+            apt-get -s install libdbus-1-3
+            apt-cache policy libdbus-1-3
+            dpkg -L libdbus-1-3
             npm i -g yarn
             yarn install
+            ls -la /lib/x86_64-linux-gnu/libdbus-1.so.3
       - run:
           name: Test
           command: |

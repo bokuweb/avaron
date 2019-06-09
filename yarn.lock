@@ -1667,19 +1667,10 @@ electron-download@^4.1.0:
     semver "^5.4.1"
     sumchecker "^2.0.2"
 
-electron-nightly@^6.0.0-nightly.20190123:
-  version "6.0.0-nightly.20190123"
-  resolved "https://registry.yarnpkg.com/electron-nightly/-/electron-nightly-6.0.0-nightly.20190123.tgz#ad01d7cbc229ee12f295e627d5ac0764a5c76ebc"
-  integrity sha512-kVZcEQFnfPpFte7lNxvJKPZANHS1oSVNA4xsK05IFUKduGboJ5hxOdIwQWgBa51UKpzo8dEvcAOe2uXcPr2YkA==
-  dependencies:
-    "@types/node" "^10.12.18"
-    electron-download "^4.1.0"
-    extract-zip "^1.0.3"
-
-electron@^5.0.0-beta.2:
-  version "5.0.0-beta.2"
-  resolved "https://registry.yarnpkg.com/electron/-/electron-5.0.0-beta.2.tgz#c16291138e65ccf81128269e219d0e4d6e46ea98"
-  integrity sha512-+GCN1/eTxReidBoFOxdXjF9QyOgZpjMOA0ZwpZrPFUpKrGxEdZTCP5hBt9HtN51SJkNw0XPC/aX89ForFgPqkg==
+electron@6.0.0-beta.6:
+  version "6.0.0-beta.6"
+  resolved "https://registry.yarnpkg.com/electron/-/electron-6.0.0-beta.6.tgz#11b8395b9dd25f9ecf79beaac726e18031b71c0d"
+  integrity sha512-w09md+UPBd7p20divMi91cOYYvIYtfOYFjc4Gm+ki8HVRTQlHpnhq752Suzie2NyGKIJYoK5MZbF06HIyPxO4g==
   dependencies:
     "@types/node" "^10.12.18"
     electron-download "^4.1.0"
