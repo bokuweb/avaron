@@ -1,0 +1,29 @@
+defaults: &defaults
+  working_directory: ~/avaron
+  docker:
+    - image: bokuweb/node-go-with-browser:latest
+      environment:
+        DISPLAY: ":99"
+
+version: 2
+jobs:
+  build:
+    <<: *defaults
+    steps:
+      - checkout
+      - run:
+          name: Install dependencies
+          command: |
+            apt-get -s install libdbus-1-3
+            apt-cache policy libdbus-1-3
+            dpkg -L libdbus-1-3
+            npm i -g yarn
+            yarn install
+            ls -la /lib/x86_64-linux-gnu/libdbus-1.so.3
+      - run:
+          name: Test
+          command: |
+            xvfbd start
+            yarn run test:main
+            yarn run test:renderer
+            xvfbd stop

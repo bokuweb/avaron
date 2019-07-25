@@ -16,7 +16,8 @@ test_script:
   - node --version
   - npm --version
   # run tests
-  - npm test
+  - npm run test:main
+  - npm run test:renderer
 
 # Don't actually build.
 build: off

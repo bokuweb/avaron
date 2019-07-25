@@ -1,6 +1,6 @@
-import test from 'ava';
+import test from "ava";
 
-test('log test', t => {
-    t.log('log');
-    t.pass();
+test("log test", t => {
+  t.log("log");
+  t.pass();
 });
