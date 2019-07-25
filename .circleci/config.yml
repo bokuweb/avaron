@@ -1,9 +1,7 @@
-
-
 defaults: &defaults
   working_directory: ~/avaron
   docker:
-    - image: bokuweb/node-xcb-xvfb
+    - image: bokuweb/node-go-with-browser:latest
       environment:
         DISPLAY: ":99"
 
@@ -28,5 +26,4 @@ jobs:
             xvfbd start
             yarn run test:main
             yarn run test:renderer
-            xvfbd stop    
-
+            xvfbd stop
